@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hello word</title>
+	</head>
+	<body> 
+		<div id="page_container"> 
+			<p id="series1" >( ( a + b ) / 5 abd )</p>
+			<p id="series2">) ( a + b ) )</p>
+			<p id="series3">( b * ( c + d *2 / ( 2 + ( 12 abc / ( a + 3 ) ) ) )</p>
+			<p id="result"></p>
+		</div>	
+
+		<script>
+		var string1 = '( ( a + b ) / 5 abd )';
+		checkBrackets(string1);
+		var string2 = ') ( a + b ) )';
+		checkBrackets(string2);
+		var string3 = '( b * ( c + d *2 / ( 2 + ( 12 abc / ( a + 3 ) ) ) )';
+		checkBrackets(string3);
+
+		function checkBrackets(data)
+		{
+			var series = data;
+			var bracesOpen = 0;
+			for (var i=0; i<data.length; i++) 
+			{
+				switch(series[i])
+				{
+			       case '(' : 
+			          bracesOpen++;
+			          break;
+			       case ')' : 
+			           bracesOpen--;
+			           break;
+			    }
+
+			}
+			if ( bracesOpen == 0) 
+			{    
+				var div = document.getElementById('result');
+				div.innerHTML = div.innerHTML + "Correct<br>";
+			}
+			else
+			{
+				alert('correct');
+				var div = document.getElementById('result');
+				div.innerHTML = div.innerHTML + "InCorrect<br>";
+			}
+		}
+
+		</script>
+	</body>
+</html>
